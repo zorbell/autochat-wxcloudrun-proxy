@@ -19,6 +19,13 @@ use Illuminate\Support\Facades\Log;
 
 class CounterController extends Controller
 {
+    public function proxy(){
+        
+        error_log(json_encode(file_get_contents('php://input'), JSON_UNESCAPED_UNICODE).PHP_EOL);
+        return response(0);
+
+    }
+    
     /**
      * 获取todo list
      * @return Json
