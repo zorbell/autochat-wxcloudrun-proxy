@@ -28,7 +28,7 @@ class CounterController extends Controller
     }
 
     private function posturl($url,$data){
-        $data  = json_encode($data, JSON_UNESCAPED_UNICODE);    
+        //$data  = json_encode($data, JSON_UNESCAPED_UNICODE);    
         $headerArray =array("Content-type:application/json;charset='utf-8'","Accept:application/json");
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
