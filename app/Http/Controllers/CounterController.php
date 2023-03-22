@@ -21,14 +21,15 @@ class CounterController extends Controller
 {
     public function proxy(){
         
-        error_log(json_encode(file_get_contents('php://input'), JSON_UNESCAPED_UNICODE));
-        $result = $this->posturl("https://chator.wrekee.com/connector/wechat/messager/type?from=wxcloudrun", file_get_contents('php://input'));
+        //error_log(json_encode(file_get_contents('php://input'), JSON_UNESCAPED_UNICODE));
+        $url = "https://chator.wrekee.com/connector/wechat/messager/type?from=wxcloudrun";
+        $result = $this->posturl($url, json_decode(file_get_contents('php://input'),true));
         return response("success");
 
     }
 
     private function posturl($url,$data){
-        //$data  = json_encode($data, JSON_UNESCAPED_UNICODE);    
+        $data  = json_encode($data, JSON_UNESCAPED_UNICODE);    
         $headerArray =array("Content-type:application/json;charset='utf-8'","Accept:application/json");
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
