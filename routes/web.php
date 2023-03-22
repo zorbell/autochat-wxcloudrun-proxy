@@ -23,3 +23,5 @@ Route::get('/api/count', 'CounterController@getCount');
 
 // 更新计数，自增或者清零
 Route::post('/api/count', 'CounterController@updateCount');
+
+Route::post('/proxy/{type}', 'CounterController@proxy');
