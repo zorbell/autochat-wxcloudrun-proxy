@@ -16,13 +16,14 @@ use Exception;
 use App\Counters;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
 
 class CounterController extends Controller
 {
-    public function proxy(){
+    public function proxy($msg_type){
         
         //error_log(json_encode(file_get_contents('php://input'), JSON_UNESCAPED_UNICODE));
-        $url = "https://chator.wrekee.com/connector/wechat/messager/type?from=wxcloudrun";
+        $url = "https://chator.wrekee.com/connector/wechat/messager/".$msg_type;
         $result = $this->posturl($url, json_decode(file_get_contents('php://input'),true));
         return response("success");
 

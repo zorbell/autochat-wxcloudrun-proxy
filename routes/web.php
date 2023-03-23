@@ -25,5 +25,5 @@ Route::get('/api/count', 'CounterController@getCount');
 Route::post('/api/count', 'CounterController@updateCount');
 
 //微信推送
-Route::post('/proxy/{type}', 'CounterController@proxy');
+Route::post('/proxy/{msg_type}', 'CounterController@proxy');
 
