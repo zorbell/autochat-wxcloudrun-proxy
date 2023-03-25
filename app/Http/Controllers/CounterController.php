@@ -23,7 +23,7 @@ class CounterController extends Controller
     public function proxy($msg_type){
         
         //error_log(json_encode(file_get_contents('php://input'), JSON_UNESCAPED_UNICODE));
-        $url = "https://chator.wrekee.com/connector/wechat/messager/".$msg_type;
+        $url = "https://chator.wrekee.com/autochat/v1/connector/wechat/messager/".$msg_type;
         $result = $this->posturl($url, json_decode(file_get_contents('php://input'),true));
         return response("success");
 
